@@ -3,29 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Quiz Game</title>
+    <title>AI Quiz Master</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-theme="light">
+    <div class="theme-toggle">
+        <button id="theme-btn">Switch Theme</button>
+    </div>
     <div class="category-container" id="category-container">
-        <h1>Choose a Category</h1>
-        <div id="categories" class="categories"></div>
+        <div class="home-header">
+            <h1>Welcome to AI Quiz Master</h1>
+            <p>Test your knowledge against the ultimate AI challenge!</p>
+        </div>
+        <div class="difficulty-select">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+        <div id="categories" class="categories-grid"></div>
+        <div class="home-buttons">
+            <button id="load-saved-btn">Load Saved Game</button>
+        </div>
     </div>
     <div class="quiz-container" style="display: none;">
-        <h1>Quiz Time!</h1>
+        <h1>AI Quiz Master</h1>
         <div class="progress-bar" id="progress"></div>
+        <div class="timer" id="timer">Time: 30s</div>
         <div class="quiz-card">
             <h2 id="question">Question goes here</h2>
             <div id="options" class="options"></div>
             <p id="feedback" class="feedback"></p>
+            <div class="lifelines">
+                <button id="hint-btn" class="hint-btn">Hint</button>
+                <button id="fifty-btn" class="lifeline-btn">50:50</button>
+                <button id="ai-btn" class="lifeline-btn">Ask AI</button>
+                <button id="voice-toggle-btn" class="voice-toggle-btn">Voice Over: On</button>
+            </div>
         </div>
-        <div class="score" id="score">Score: 0</div>
+        <div class="score" id="score">Score: 0 | Streak: 0</div>
         <button id="next-btn" class="next-btn" disabled>Next</button>
+        <button id="save-btn" class="save-btn">Save & Quit</button>
     </div>
     <div class="result-container" id="result" style="display: none;">
-        <h2>Your Results</h2>
+        <h2>Analysis Complete</h2>
         <p id="final-score"></p>
-        <button id="restart-btn" class="restart-btn">Play Again</button>
+        <div id="progress-details"></div>
+        <button id="share-btn" class="share-btn">Share Results</button>
+        <button id="restart-btn" class="restart-btn">Restart Simulation</button>
     </div>
     <script src="script.js"></script>
 </body>
